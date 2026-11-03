@@ -1,0 +1,45 @@
+
+# Python虚拟环境
+venv/
+.venv/
+
+# Python缓存
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# API密钥和敏感信息
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# 日志
+*.log
+
+# 本地向量数据库（可重新生成）
+03_Data/vector_database/
+
+# 自动生成的分析任务和输出
+03_Data/analysis_tasks/
+03_Data/gis_samples/
+03_Data/gis_real_results/
+03_Data/gis_target_road_results/
+
+# 大型原始文档
+03_Data/raw_documents/*.pdf
+03_Data/raw_documents/*.docx
+03_Data/raw_documents/*.zip
+
+# QGIS辅助元数据
+*.qmd
+# 大型演示文件和压缩包
+*.mp4
+*.zip
+# Public repository: keep local data and personal application files private
+03_Data/raw_documents/
+/作品集/*.pdf
+/demo.docx

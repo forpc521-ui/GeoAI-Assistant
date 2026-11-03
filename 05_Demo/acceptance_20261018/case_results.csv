@@ -1,0 +1,61 @@
+﻿mode,case_id,category,query,expected,status,parse_correct,parse_ms,actual_task,error,business_pass,closed_loop_pass,intersect_count,workflow_ms,reproduction_ms,task_id
+local,S01,standard,分析昌盛路周边300米范围内的建筑物,accept,accepted,True,0.401,"{""road_name"": ""昌盛路"", ""distance_m"": 300.0, ""operation"": ""road_buffer_buildings""}",,True,True,53,1034.095,412.022,20261018T212603257203_108ac281ff7c
+local,S02,standard,分析昌盛路周边500米范围内的建筑物,accept,accepted,True,0.036,"{""road_name"": ""昌盛路"", ""distance_m"": 500.0, ""operation"": ""road_buffer_buildings""}",,True,True,105,404.262,444.926,20261018T212604932732_d851c23b6372
+local,S03,standard,分析昌盛路周边1000米范围内的建筑物,accept,accepted,True,0.026,"{""road_name"": ""昌盛路"", ""distance_m"": 1000.0, ""operation"": ""road_buffer_buildings""}",,True,True,191,583.766,427.479,20261018T212606040475_6876ac5a9e07
+local,S04,standard,分析昌盛路周边3000米的建筑物,accept,accepted,True,0.022,"{""road_name"": ""昌盛路"", ""distance_m"": 3000.0, ""operation"": ""road_buffer_buildings""}",,True,True,480,498.92,536.321,20261018T212607306697_bd4bbc956363
+local,S05,standard,分析昌盛路周边5000米范围内的建筑物,accept,accepted,True,0.021,"{""road_name"": ""昌盛路"", ""distance_m"": 5000.0, ""operation"": ""road_buffer_buildings""}",,True,True,510,555.553,549.063,20261018T212608642886_092d9faffda9
+local,S06,standard,统计昌盛路附近0.5公里内的建筑数量,accept,accepted,True,0.021,"{""road_name"": ""昌盛路"", ""distance_m"": 500.0, ""operation"": ""road_buffer_buildings""}",,True,True,105,415.775,420.943,20261018T212610062109_a2264808523d
+local,S07,standard,请帮我查询昌盛路周边1公里的建筑物,accept,accepted,True,0.02,"{""road_name"": ""昌盛路"", ""distance_m"": 1000.0, ""operation"": ""road_buffer_buildings""}",,True,True,191,423.988,438.559,20261018T212611133110_6857473eda4a
+local,S08,standard,筛选昌盛路两侧300米的建筑物,accept,accepted,True,0.019,"{""road_name"": ""昌盛路"", ""distance_m"": 300.0, ""operation"": ""road_buffer_buildings""}",,True,True,53,424.438,400.166,20261018T212612237139_56973cffd0d0
+local,S09,standard,查找昌盛路周围500m内的建筑物,accept,accepted,True,0.019,"{""road_name"": ""昌盛路"", ""distance_m"": 500.0, ""operation"": ""road_buffer_buildings""}",,True,True,105,407.221,418.434,20261018T212613293470_5da8f4406677
+local,S10,standard,查看昌盛路附近1km范围内的楼宇,accept,accepted,True,0.018,"{""road_name"": ""昌盛路"", ""distance_m"": 1000.0, ""operation"": ""road_buffer_buildings""}",,True,True,191,426.279,435.992,20261018T212614355328_107ce4bf89b9
+local,S11,standard,请统计昌盛路周边250米的建筑物总数,accept,accepted,True,0.019,"{""road_name"": ""昌盛路"", ""distance_m"": 250.0, ""operation"": ""road_buffer_buildings""}",,True,True,42,408.492,396.442,20261018T212615472996_a1a6ac6db930
+local,S12,standard,分析昌盛路周边500.5米的建筑物,accept,accepted,True,0.019,"{""road_name"": ""昌盛路"", ""distance_m"": 500.5, ""operation"": ""road_buffer_buildings""}",,True,True,105,440.423,408.441,20261018T212616511805_4c839d70798e
+local,P01,paraphrase,昌盛路周边500米内有多少建筑物？,accept,rejected,False,0.015,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,P02,paraphrase,帮我数一下距离昌盛路300米以内的建筑物。,accept,rejected,False,0.013,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,P03,paraphrase,以昌盛路为中心做1公里缓冲区，统计相交建筑物。,accept,rejected,False,0.013,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,P04,paraphrase,我想查看昌盛路500米缓冲区涉及哪些建筑物。,accept,rejected,False,0.011,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,P05,paraphrase,请计算昌盛路周边0.3公里内的建筑物数量。,accept,rejected,False,0.012,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,P06,paraphrase,目标道路是昌盛路，缓冲距离为500米，分析对象是建筑物。,accept,rejected,False,0.014,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,P07,paraphrase,能查出昌盛路附近1000米内有哪些建筑物吗？,accept,rejected,False,0.011,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,P08,paraphrase,把与昌盛路周边500米缓冲区相交的建筑物找出来。,accept,rejected,False,0.012,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,I01,invalid,分析昌盛路附近的建筑物,reject,rejected,True,0.006,null,请只指定一个距离，使用阿拉伯数字和米/公里单位，例如 500 米。,,,,,,
+local,I02,invalid,分析不存在路周边500米的建筑物,reject,rejected,True,0.015,null,道路不存在于当前数据。可用道路：昌盛路,,,,,,
+local,I03,invalid,分析昌盛路周边300米和500米的建筑物,reject,rejected,True,0.008,null,请只指定一个距离，使用阿拉伯数字和米/公里单位，例如 500 米。,,,,,,
+local,I04,invalid,分析周边500米范围内的建筑物,reject,rejected,True,0.01,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,I05,invalid,分析昌盛路周边500米的公园,reject,rejected,True,0.011,null,本地规则仅支持约定句式。请使用：分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。其他表述可尝试DeepSeek模式。,,,,,,
+local,I06,invalid,分析昌盛路周边500米范围外的建筑物,reject,rejected,True,0.009,null,当前仅支持缓冲区相交分析；可附加统计范围内/范围外数量和占比，不支持范围外筛选、完全包含或数据修改。,,,,,,
+local,I07,invalid,分析昌盛路周边0米的建筑物,reject,rejected,True,0.009,null,距离必须大于 0 且不超过 5000 米。,,,,,,
+local,I08,invalid,分析昌盛路周边-500米的建筑物,reject,rejected,True,0.007,null,请只指定一个距离，使用阿拉伯数字和米/公里单位，例如 500 米。,,,,,,
+local,I09,invalid,分析昌盛路周边5001米的建筑物,reject,rejected,True,0.009,null,距离必须大于 0 且不超过 5000 米。,,,,,,
+local,I10,invalid,分析昌盛路和不存在路周边500米的建筑物,reject,rejected,True,0.014,null,道路不存在于当前数据。可用道路：昌盛路,,,,,,
+deepseek,S01,standard,分析昌盛路周边300米范围内的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S02,standard,分析昌盛路周边500米范围内的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S03,standard,分析昌盛路周边1000米范围内的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S04,standard,分析昌盛路周边3000米的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S05,standard,分析昌盛路周边5000米范围内的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S06,standard,统计昌盛路附近0.5公里内的建筑数量,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S07,standard,请帮我查询昌盛路周边1公里的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S08,standard,筛选昌盛路两侧300米的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S09,standard,查找昌盛路周围500m内的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S10,standard,查看昌盛路附近1km范围内的楼宇,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S11,standard,请统计昌盛路周边250米的建筑物总数,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,S12,standard,分析昌盛路周边500.5米的建筑物,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,P01,paraphrase,昌盛路周边500米内有多少建筑物？,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,P02,paraphrase,帮我数一下距离昌盛路300米以内的建筑物。,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,P03,paraphrase,以昌盛路为中心做1公里缓冲区，统计相交建筑物。,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,P04,paraphrase,我想查看昌盛路500米缓冲区涉及哪些建筑物。,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,P05,paraphrase,请计算昌盛路周边0.3公里内的建筑物数量。,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,P06,paraphrase,目标道路是昌盛路，缓冲距离为500米，分析对象是建筑物。,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,P07,paraphrase,能查出昌盛路附近1000米内有哪些建筑物吗？,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,P08,paraphrase,把与昌盛路周边500米缓冲区相交的建筑物找出来。,accept,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I01,invalid,分析昌盛路附近的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I02,invalid,分析不存在路周边500米的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I03,invalid,分析昌盛路周边300米和500米的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I04,invalid,分析周边500米范围内的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I05,invalid,分析昌盛路周边500米的公园,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I06,invalid,分析昌盛路周边500米范围外的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I07,invalid,分析昌盛路周边0米的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I08,invalid,分析昌盛路周边-500米的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I09,invalid,分析昌盛路周边5001米的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,
+deepseek,I10,invalid,分析昌盛路和不存在路周边500米的建筑物,reject,skipped,False,,null,本次运行未选择此解析方式,,,,,,

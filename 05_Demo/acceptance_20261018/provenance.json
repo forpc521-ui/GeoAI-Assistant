@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-10-18T21:25:18.448353+08:00",
+  "environment": {
+    "python": "3.12.3",
+    "geopandas": "1.2.0",
+    "shapely": "2.2.0",
+    "pyproj": "3.8.0",
+    "pyogrio": "0.13.0",
+    "numpy": "2.5.4"
+  },
+  "inputs": {
+    "target_road.geojson": {
+      "path": "D:\\GeoAI-Assistant\\03_Data\\raw_documents\\osm_test\\target_road.geojson",
+      "sha256": "682d6748a0a8e3b3e54ea5691586b7e6333bd2fe8905947cd18d25af95902e11"
+    },
+    "buildings_osm.geojson": {
+      "path": "D:\\GeoAI-Assistant\\03_Data\\raw_documents\\osm_test\\buildings_osm.geojson",
+      "sha256": "6e5d2b52f54d8c88ce469287dc0101941d8131aeaecaf70385754079e145344d"
+    }
+  },
+  "code": {
+    "app.py": "2dc1b841fd3a9cd4848cf82c9aa7af13138baad9d23d163173343cfe858f4480",
+    "app_v01.py": "baf1bbc6c59bf1eeaa7fec5b74fb93ee7affaf2d9d3162d2cdea7e5723519991",
+    "evaluate_project.py": "b84f50b409869c45a8ace30408ed05b047f73d7fe045edff3113e5c8ae835fca",
+    "evaluation_report.py": "aed801d2ba8fa88ce7e83cd38abb2352444235625efdd2ab754e82ee1774ed4b",
+    "gis_analysis.py": "af66dee24cdf1b7b9f859abed38a83dbb45fdc01e2fb2056b74f272161974330",
+    "gis_feature.py": "90fe00be3842e94e3eacd3ef0acdf9caeda236af657e3320bf08daacb64090b1",
+    "gis_history.py": "9a157b65d6f311496c3bc6437a34e42c31ff34c63ea16d9629690942212eab53",
+    "gis_history_ui.py": "7c0f020dfe3c5df2eb13f812bc3714f11601e3386e1f85cb10117c6062daecdf",
+    "gis_natural.py": "918002241e75b425468d1be263312e65e0502c5a2f72aada5d326c798e6aaa84",
+    "gis_natural_ui.py": "aaf5e5c23cc3da826f8d4e6e83f13975d26399bd5dd36f991399ec3a5fe6406b",
+    "gis_real_results.py": "f8b74781b471fbbcead34055a319edc9283b7cfbc923ec1b6bca04e6efa007e9",
+    "gis_real_test.py": "226bb7975355e597c597d792d13ef9e8bb043e24d518e53f3c2d6df7b281fada",
+    "gis_result_view.py": "161f3bad95cca672adf6674afded60f5aab3a2ba92969d46147003317add15dd",
+    "ingest.py": "2cf2326cc574415031518db49cd5621e64df1604f4834e52bad5b94d53584306",
+    "rag_test.py": "0affdc02346b2b6fbbe8240f8b2331dc6d6636542ed070eaeae17396e5d835d3",
+    "test_gis_evaluation.py": "63143ad206e433482bc059563db60f7e4ceb4caf89196d156790f47bb5240f1d",
+    "test_gis_feature.py": "3d3623201ed15a39aac169e24d7c295b2b15ea4af892b182d68f9bd287424566",
+    "test_gis_history.py": "3a563349b731d4088db52d7cd0697484e7bbd1a8ae95ced53eae586d4809f6cb",
+    "test_gis_natural.py": "74a2a84c4f9caf764ff3c8fb721a61bc65808de41eb96c570e976f90abf3ce22",
+    "test_gis_product_ui.py": "b5c2eb4bb7294a4069109bd5a49110abbc3e9bf3fda961436836682b0381caef",
+    "test_gis_real_results.py": "046abb877006dcaef086c0a5d07a308a3022beefae3a895c94172105bbaca3f9"
+  },
+  "cases_sha256": "9ba6f9079dfdea7d64beae086b549265afe5125e6586b1513e31a8816034a6b2",
+  "dataset_version": "1.0.0",
+  "source_data_coverage": "未核实下载区域边界，不代表完整区域数据",
+  "model": "deepseek-chat",
+  "temperature": 0,
+  "api_timeout_seconds": 20,
+  "api_retries": 0,
+  "api_workers": 3
+}

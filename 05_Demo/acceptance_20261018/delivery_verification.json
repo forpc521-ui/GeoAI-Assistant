@@ -1,0 +1,31 @@
+{
+  "browser_task_id": "20261018T212621568974_16ddca1f37a4",
+  "replay_task_id": "20261018T213224577748_2087d88c1a85",
+  "replay_matches": true,
+  "csv_downloads": [
+    {
+      "name": "summary_500m.csv",
+      "rows": 1,
+      "bytes_match_saved_task": true,
+      "sha256": "7fcd3143194fc1e27cfb11500784d98e7027dcb02b68fc790303b39deec607f2"
+    },
+    {
+      "name": "buildings_500m_selected.csv",
+      "rows": 105,
+      "bytes_match_saved_task": true,
+      "sha256": "fcee6d66d592d74cce9f44a34552ca2281686bb753bcdd21724174a52570b027"
+    },
+    {
+      "name": "buildings_500m_all.csv",
+      "rows": 510,
+      "bytes_match_saved_task": true,
+      "sha256": "7ea9325751ea3feeb9715e558d444820241c2ecaeef2afd3445ec4873e2a28c0"
+    }
+  ],
+  "browser_zip_checksums_pass": true,
+  "all_existing_python_files_unchanged": true,
+  "credential_scan": "passed",
+  "scope": "local output files including all ZIP entries; no public upload",
+  "tests": 39,
+  "environment_dependency_check": "pip check passed"
+}
