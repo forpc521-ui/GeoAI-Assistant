@@ -68,7 +68,7 @@ py -3.12 -m venv .venv
 | 环境与安全 | 05_Demo/DeliveryAndSecurity.md |
 | 求职与面试 | 05_Demo/ResumeAndInterview.md |
 
-密钥、环境、正式任务记录和待审核数据已加入.gitignore。任务包不含.env，但含指令、原始几何和本机路径，分享前审阅。本轮未公开发布项目；本地演示不等于生产部署。
+密钥、环境、正式任务记录和待审核数据已加入.gitignore。任务包不含.env，但含指令、原始几何和本机路径，分享前审阅。源码与材料现已公开；原始数据仍留在本机，本地演示不等于生产部署。
 
 ## 求职作品集
 
@@ -78,3 +78,9 @@ py -3.12 -m venv .venv
 - [演示脚本](05_Demo/DemoScript.md)
 
 公开仓库提供源码、文档与历史验收证据；原始空间数据、个人简历、API 密钥、虚拟环境及任务快照留在本机。克隆后需自行准备经授权的数据，才能运行空间分析和依赖该数据的测试。GitHub 仓库链接用于源码与材料展示，尚非在线应用。
+
+## 在线交互 Demo
+
+[打开 GeoAI 体验版](https://forpc521-ui.github.io/GeoAI-Assistant/)
+
+无需安装或密钥。支持合成样本上的规则解析、几何分析、CSV 导出与浏览器历史重算；不调用 DeepSeek 或 RAG，不使用原项目的真实道路数据。页面源码位于 docs/，由 GitHub Pages 从 main 分支的 /docs 发布。
