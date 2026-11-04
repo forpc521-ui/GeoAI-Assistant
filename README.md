@@ -84,3 +84,5 @@ py -3.12 -m venv .venv
 [打开 GeoAI 体验版](https://forpc521-ui.github.io/GeoAI-Assistant/)
 
 无需安装或密钥。支持合成样本上的规则解析、几何分析、CSV 导出与浏览器历史重算；不调用 DeepSeek 或 RAG，不使用原项目的真实道路数据。页面源码位于 docs/，由 GitHub Pages 从 main 分支的 /docs 发布。
+
+知识问答体验：浏览器本地关键词检索项目知识库，展示原文与来源，不调用模型、不构成在线 RAG 效果验证。索引位于 docs/knowledge.js，更新源文档后需重新生成索引。
