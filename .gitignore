@@ -43,3 +43,10 @@ __pycache__/
 03_Data/raw_documents/
 /作品集/*.pdf
 /demo.docx
+
+# Keep selected application documents local only
+/PRD_v2.0_.md
+/作品集/PRD_v2.0_.md
+/05_Demo/DemoScript.md
+/05_Demo/ResumeAndInterview.md
+/01_Product/PRD.md
