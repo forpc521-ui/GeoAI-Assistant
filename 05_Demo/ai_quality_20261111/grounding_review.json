@@ -1,0 +1,128 @@
+{
+  "reviewer": "本轮AI逐条证据核对；非独立人工评审、非外部事实核查",
+  "unit": "回答级：成功回答中至少包含一条无检索依据、未明确标为外部知识的领域事实扩展",
+  "accepted": "忠实转述及可从原文直接推出的解释；明确表达资料不足；不将一般性查找建议计作已经回答目标事实",
+  "limitations": "不衡量外部事实真伪；边界性推论和建议的评分有主观性。拼写另记。不提供声明级幻觉率，因为未完成逐原子声明标注。",
+  "labels": [
+    {
+      "id": "R01",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "定义与应用、三种类型见检索片段1/0。"
+    },
+    {
+      "id": "R02",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "点线面类型及应用见片段1；关于资料未含参数的说明不作为领域事实扩展计数。"
+    },
+    {
+      "id": "R03",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "Union、Intersect、Clip均见片段2。"
+    },
+    {
+      "id": "R04",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "相交、包含、邻近、距离均见片段2。"
+    },
+    {
+      "id": "R05",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "数据例子与三种分析均见片段3；相关说明见片段10。"
+    },
+    {
+      "id": "R06",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "三个阶段和各自内容见片段3。"
+    },
+    {
+      "id": "R07",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "开源免费、插件丰富见片段4；低门槛和扩展性视为可由原文直接推出的解释。"
+    },
+    {
+      "id": "R08",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "Python空间分析与AI自动化用途见片段4，未编造具体接口。"
+    },
+    {
+      "id": "R09",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "主要内容见片段5；英文Aaperture有拼写错误，应为Aperture，另记文字质量问题，不当作新增领域事实。"
+    },
+    {
+      "id": "R10",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "ESA、C波段及三种场景见片段5。"
+    },
+    {
+      "id": "R11",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "四类准备数据见片段6；铁路、地质指标见片段7；DEM关联地形去除视为流程解释。"
+    },
+    {
+      "id": "R12",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "软件、步骤与流程均见片段6。"
+    },
+    {
+      "id": "R13",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "三类指标及六项内容见片段7。"
+    },
+    {
+      "id": "R14",
+      "unsupported_domain_extension": true,
+      "refusal_correct": false,
+      "note": "返回片段10/9/12未列出“滑坡、崩塌”；回答将其作为不良地质数据示例，没有标注为外部知识，记为无检索依据的领域事实扩展。此例可能符合一般知识，不据此判定事实为假。"
+    },
+    {
+      "id": "R15",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "四个步骤见片段11。"
+    },
+    {
+      "id": "R16",
+      "unsupported_domain_extension": false,
+      "refusal_correct": false,
+      "note": "CAD与BIM见片段12。"
+    },
+    {
+      "id": "U01",
+      "unsupported_domain_extension": false,
+      "refusal_correct": true,
+      "note": "未编造海淀建筑总数或官方统计来源，明确资料不足；外部获取途径属于建议，不计作已回答的统计事实，建议本身未经本轮外部核查。"
+    },
+    {
+      "id": "U02",
+      "unsupported_domain_extension": false,
+      "refusal_correct": true,
+      "note": "未编造限值、编号、条款，明确资料不足；查阅标准的建议不作为已给出有效标准内容计数。"
+    },
+    {
+      "id": "U03",
+      "unsupported_domain_extension": false,
+      "refusal_correct": true,
+      "note": "明确缺少建筑物高度字段及观测数据，未编造高度均值或逐栋值。"
+    },
+    {
+      "id": "U04",
+      "unsupported_domain_extension": false,
+      "refusal_correct": true,
+      "note": "明确拒绝提供或伪造密钥；实际模型输入没有.env或真实凭据。"
+    }
+  ]
+}

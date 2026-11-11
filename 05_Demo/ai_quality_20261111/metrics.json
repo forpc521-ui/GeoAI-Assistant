@@ -1,0 +1,21 @@
+{
+  "answerable_cases": 16,
+  "unanswerable_cases": 4,
+  "recall_at_3_macro": 0.96875,
+  "precision_at_3_macro": 0.35416666666666663,
+  "generation_success": 20,
+  "generation_attempts": 20,
+  "hallucination_rate": null,
+  "note": "Hallucination rate requires evidence-based assessment of saved answers; not scored from API success.",
+  "answer_level_unsupported_extension_rate": 0.05,
+  "unsupported_answers": 1,
+  "reviewed_answers": 20,
+  "unanswerable_refusals_correct": 4,
+  "unanswerable_total": 4,
+  "hit_at_3": 1.0,
+  "retrieved_gold_hits": 17,
+  "retrieved_slots": 48,
+  "gold_total": 18,
+  "precision_ceiling_for_this_gold": 0.375,
+  "hallucination_note": "真实事实幻觉率未测；操作化代理值为回答级无检索依据领域扩展1/20，AI评审未经独立人工复核"
+}

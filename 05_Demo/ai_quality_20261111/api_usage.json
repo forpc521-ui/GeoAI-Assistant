@@ -1,0 +1,382 @@
+[
+  {
+    "id": "e9681b0f-9e81-4a0a-8e8c-40cb406e1341",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 149,
+      "prompt_tokens": 770,
+      "total_tokens": 919,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 770
+    }
+  },
+  {
+    "id": "18a666a3-03f3-420c-b34e-95fbbc424cf3",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 279,
+      "prompt_tokens": 775,
+      "total_tokens": 1054,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 775
+    }
+  },
+  {
+    "id": "f8319924-42c3-414d-bdf5-22e63147dc45",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 779,
+      "total_tokens": 823,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 779
+    }
+  },
+  {
+    "id": "7045ddb9-a973-4012-9905-cad94761ee55",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 73,
+      "prompt_tokens": 794,
+      "total_tokens": 867,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 128,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 128,
+      "prompt_cache_miss_tokens": 666
+    }
+  },
+  {
+    "id": "904588d3-3a85-475c-820f-93858bb9f785",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 164,
+      "prompt_tokens": 813,
+      "total_tokens": 977,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 813
+    }
+  },
+  {
+    "id": "ec04da01-275b-4e88-b348-dcf850c0c6ec",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 101,
+      "prompt_tokens": 794,
+      "total_tokens": 895,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 128,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 128,
+      "prompt_cache_miss_tokens": 666
+    }
+  },
+  {
+    "id": "37987094-27bd-40d0-9ec0-37f31702e9a0",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 67,
+      "prompt_tokens": 446,
+      "total_tokens": 513,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 446
+    }
+  },
+  {
+    "id": "3bc66e22-a7a7-4fca-b5a8-16c0cea156db",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 100,
+      "prompt_tokens": 450,
+      "total_tokens": 550,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 450
+    }
+  },
+  {
+    "id": "da8602e4-e62c-4dc3-9083-a8bb71fd6494",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 189,
+      "prompt_tokens": 531,
+      "total_tokens": 720,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 531
+    }
+  },
+  {
+    "id": "45a301db-8b92-4ac5-9eb3-2764ab60b2ad",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 98,
+      "prompt_tokens": 641,
+      "total_tokens": 739,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 256,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 256,
+      "prompt_cache_miss_tokens": 385
+    }
+  },
+  {
+    "id": "16f92fca-cb92-49bd-8ebe-2d394f151c40",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 169,
+      "prompt_tokens": 656,
+      "total_tokens": 825,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 656
+    }
+  },
+  {
+    "id": "cc962b13-679f-4f47-8543-7928114dc45e",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 221,
+      "prompt_tokens": 716,
+      "total_tokens": 937,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 716
+    }
+  },
+  {
+    "id": "aeee6043-e291-4416-9a42-64803e33d0a2",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 126,
+      "prompt_tokens": 642,
+      "total_tokens": 768,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 256,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 256,
+      "prompt_cache_miss_tokens": 386
+    }
+  },
+  {
+    "id": "441392cb-8c59-4d2e-ae43-e99fba299953",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 94,
+      "prompt_tokens": 718,
+      "total_tokens": 812,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 718
+    }
+  },
+  {
+    "id": "65ddc3d8-eabe-4922-878a-f8864d0d16a9",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 40,
+      "prompt_tokens": 730,
+      "total_tokens": 770,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 730
+    }
+  },
+  {
+    "id": "15fbabba-0644-43fb-bed5-73d5964b6698",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 142,
+      "prompt_tokens": 713,
+      "total_tokens": 855,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 713
+    }
+  },
+  {
+    "id": "7ad31144-9e77-4ccc-b7a6-105f24ee2a99",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 192,
+      "prompt_tokens": 822,
+      "total_tokens": 1014,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 128,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 128,
+      "prompt_cache_miss_tokens": 694
+    }
+  },
+  {
+    "id": "631909e1-5750-43d1-801d-efabb48b01b5",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 217,
+      "prompt_tokens": 645,
+      "total_tokens": 862,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 384,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 384,
+      "prompt_cache_miss_tokens": 261
+    }
+  },
+  {
+    "id": "145959ca-39ff-4422-82ca-a728fcac39dd",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 139,
+      "prompt_tokens": 642,
+      "total_tokens": 781,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 128,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 128,
+      "prompt_cache_miss_tokens": 514
+    }
+  },
+  {
+    "id": "3a8a18a1-81ef-4649-bb16-cf09d4997170",
+    "model": "deepseek-flash",
+    "usage": {
+      "completion_tokens": 124,
+      "prompt_tokens": 561,
+      "total_tokens": 685,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 561
+    }
+  }
+]

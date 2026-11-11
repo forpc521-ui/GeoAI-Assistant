@@ -1,0 +1,15 @@
+{
+  "sha256": {
+    "04_Code\\app.py": "fd34940209a184d79006ca079861c438fcbca960a3756799e0e8f79b9beb4a6f",
+    "03_Data\\evaluation\\rag_cases_v1.json": "f86fe9120929b1f01535aa5b90f2a507e2150d1423214f77a0ea607af95e2b67",
+    "03_Data\\vector_database\\metadata.json": "814297d80b8a548ba357094772313e94e9bf2afbef30dac871d6cb9791ba54da",
+    "03_Data\\vector_database\\gis.index": "bc2ad68e8f920646737afaca2a1424d85e0d62387bb800e423b0eaaffcf8cdb1"
+  },
+  "k": 3,
+  "temperature": 0.2,
+  "max_tokens": 1200,
+  "transport_timeout": 35,
+  "max_retries": 0,
+  "concurrency": 2,
+  "gold_scope": "independently sufficient answer-bearing chunks; empty gold excluded from retrieval denominator; hand-labeled developer set, not independent test data"
+}

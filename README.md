@@ -29,7 +29,7 @@ Set-Location 'D:\GeoAI-Assistant'
 & '.\venv\Scripts\python.exe' '.\04_Code\evaluate_project.py' --mode local
 ```
 
-2026-10-18现有环境：39项回归通过。冻结30条开发指令中本地规则标准表达12/12、同义改写0/8、异常10/10；有效任务端到端与复现均12/20（60%），已执行12条空间/复现核验各12/12。详细分母见01_Product/Metrics.md；不能称为模型准确率、用户效果或100%总体闭环。真实DeepSeek与RAG在线质量本轮未测。
+2026-10-18现有环境：39项回归通过。冻结30条开发指令中本地规则标准表达12/12、同义改写0/8、异常10/10；有效任务端到端与复现均12/20（60%），已执行12条空间/复现核验各12/12。详细分母见01_Product/Metrics.md；不能称为模型准确率、用户效果或100%总体闭环。以上是2026-10-18历史结果；2026-11-11的RAG与DeepSeek实测见[最新评测报告](05_Demo/ai_quality_20261111/report.md)。
 
 ## 环境与新机器安装
 
@@ -60,13 +60,11 @@ py -3.12 -m venv .venv
 
 | 材料 | 文件 |
 |---|---|
-| 产品需求与流程 | 01_Product/PRD.md、UserFlow.md |
+| 产品需求与流程 | 05_Demo/Portfolio/GeoAI-Assistant_PRD_v2.0_AI产品版.md、01_Product/UserFlow.md |
 | 来源/边界与指标 | 01_Product/DataSources.md、Metrics.md |
 | 实际架构 | 02_Technology/Architecture.md |
 | 验收摘要 | 05_Demo/acceptance_20261018/ |
-| 演示与录屏 | 05_Demo/DemoScript.md |
 | 环境与安全 | 05_Demo/DeliveryAndSecurity.md |
-| 求职与面试 | 05_Demo/ResumeAndInterview.md |
 
 密钥、环境、正式任务记录和待审核数据已加入.gitignore。任务包不含.env，但含指令、原始几何和本机路径，分享前审阅。源码与材料现已公开；原始数据仍留在本机，本地演示不等于生产部署。
 
@@ -74,18 +72,9 @@ py -3.12 -m venv .venv
 
 - [AI 产品 PRD](05_Demo/Portfolio/GeoAI-Assistant_PRD_v2.0_AI产品版.md)
 - [方案选型与 AI 指标](05_Demo/Portfolio/GeoAI_作品集_方案选型与AI指标.md)
-- [评测报告](05_Demo/acceptance_20261018/report.md)
-- [演示脚本](05_Demo/DemoScript.md)
+- [评测报告（最新）](05_Demo/ai_quality_20261111/report.md)
 
 公开仓库提供源码、文档与历史验收证据；原始空间数据、个人简历、API 密钥、虚拟环境及任务快照留在本机。克隆后需自行准备经授权的数据，才能运行空间分析和依赖该数据的测试。GitHub 仓库链接用于源码与材料展示，尚非在线应用。
-
-## 在线交互 Demo
-
-[打开 GeoAI 体验版](https://forpc521-ui.github.io/GeoAI-Assistant/)
-
-无需安装或密钥。支持合成样本上的规则解析、几何分析、CSV 导出与浏览器历史重算；不调用 DeepSeek 或 RAG，不使用原项目的真实道路数据。页面源码位于 docs/，由 GitHub Pages 从 main 分支的 /docs 发布。
-
-知识问答体验：浏览器本地关键词检索项目知识库，展示原文与来源，不调用模型、不构成在线 RAG 效果验证。索引位于 docs/knowledge.js，更新源文档后需重新生成索引。
 
 ## 北京在线数据入口
 
@@ -99,8 +88,8 @@ py -3.12 -m venv .venv
 
 已导入用户提供的 `jing-road.geojson` 和 `jing-building.geojson`，保留7,932个已命名道路要素（2,194个名称）与33,762个建筑物。自然语言空间分析默认使用此数据包，支持先解析道路与距离、确认连通路段后离线筛选。文件含周边区域，尚未核实海淀区完整行政边界覆盖；不宣称北京市全域。原始文件不公开上传。见[海淀区数据使用说明](05_Demo/HaidianData.md)。
 
-## 新版公开体验入口（V2）
+## 在线 Demo（最新）
 
-https://forpc521-ui.github.io/GeoAI-Assistant/demo-v2/
+[打开 GeoAI Demo V2](https://forpc521-ui.github.io/GeoAI-Assistant/demo-v2/)
 
-V2展示最新本地项目能力与真实验证摘要，交互部分仍为合成样本及本地知识检索。完整海淀区数据计算、DeepSeek和RAG入口需运行本地Streamlit，未部署公网计算服务。
+无需安装或密钥。公开交互采用合成样本与本地知识检索；海淀区真实数据计算、DeepSeek和RAG仍需运行本地完整项目。旧GitHub Pages根地址自动跳转到本入口，不再展示旧版交互页。
