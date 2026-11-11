@@ -2,6 +2,7 @@
 import hashlib
 import logging
 import os
+from pathlib import Path
 
 import streamlit as st
 
@@ -10,8 +11,8 @@ from gis_natural import DATA_DIR, BufferTask, parse_task, read_inputs
 from gis_history import HISTORY_DIR, load_layers, load_record, save_run
 
 
-def source_fingerprint():
-    return tuple(hashlib.sha256((DATA_DIR / name).read_bytes()).hexdigest()
+def source_fingerprint(directory=DATA_DIR):
+    return tuple(hashlib.sha256((Path(directory) / name).read_bytes()).hexdigest()
                  for name in ("target_road.geojson", "buildings_osm.geojson"))
 
 
@@ -45,12 +46,18 @@ def show_parse_error(exc):
 def render_natural_analysis():
     st.subheader("自然语言空间分析")
     st.session_state.setdefault("nl_result", None)
+    dataset_mode = st.radio("道路数据范围", ["海淀区本地数据包（默认）", "昌盛路验收样本"], key="analysis_dataset")
+    if dataset_mode == "海淀区本地数据包（默认）":
+        from gis_local_ui import render_local_analysis
+        render_local_analysis()
+        return
     st.markdown("输入道路、距离和建筑物分析任务，自动生成缓冲区、统计及地图。")
     st.caption("示例：分析昌盛路周边300米范围内的建筑物。也支持500米、1000米或0.5公里。")
     st.caption("本地规则支持约定句式，可附加：统计范围内和范围外的数量，并计算范围内建筑物占比。其他自然语言表述可尝试DeepSeek，仍仅支持单条道路缓冲区建筑物分析。")
+    active_dir = DATA_DIR
     try:
-        fingerprint = source_fingerprint()
-        input_roads, _ = cached_inputs(DATA_DIR, fingerprint)
+        fingerprint = source_fingerprint(active_dir)
+        input_roads, _ = cached_inputs(active_dir, fingerprint)
         available = sorted(input_roads["name"].dropna().unique().tolist())
     except Exception:
         logging.exception("Natural GIS input loading failed")
@@ -63,8 +70,11 @@ def render_natural_analysis():
         st.write("占比分母为当前输入建筑物总数；总数为0时占比记为无数据。距离为建筑几何到合并道路几何的最短距离，结果保留两位小数。")
         st.caption("统计仅覆盖本地导出数据，不代表整个行政区。DeepSeek仅提取任务参数；地图、距离和数量由空间计算产生。")
     with st.form("nl_form"):
+        entry = st.radio("任务输入方式", ["自然语言指令", "选择道路与距离"])
+        chosen_distance = st.number_input("缓冲距离（米）", min_value=1, max_value=5000, value=500)
         text = st.text_input("请输入空间分析指令", placeholder="分析昌盛路周边500米范围内的建筑物", key="nl_query")
         mode = st.selectbox("指令解析方式", ["本地规则（无需API）", "DeepSeek（使用已有API配置）"], key="nl_mode")
+        chosen_road = st.selectbox("选择一条道路", available)
         submitted = st.form_submit_button("解析并执行分析", type="primary")
     if submitted:
         st.session_state.nl_result = None
@@ -72,16 +82,21 @@ def render_natural_analysis():
         try:
             with st.spinner("正在解析指令并执行真实空间分析…"):
                 client = None
-                if mode.startswith("DeepSeek"):
+                if entry == "自然语言指令" and mode.startswith("DeepSeek"):
                     from openai import OpenAI
                     api_key = os.getenv("DEEPSEEK_API_KEY")
                     if not api_key:
                         st.error("执行异常：DeepSeek尚未配置，请配置API或改用本地规则。")
                         return
                     client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com", timeout=30, max_retries=0)
-                task = parse_task(text, available, client)
+                if entry == "选择道路与距离":
+                    task = BufferTask(road_name=chosen_road, distance_m=float(chosen_distance))
+                    text = f"分析{chosen_road}周边{chosen_distance}米范围内的建筑物"
+                    mode = "结构化道路选择"
+                else:
+                    task = parse_task(text, available, client)
                 stage = "execute"
-                manifest = save_run(task, text, mode, data_dir=DATA_DIR,
+                manifest = save_run(task, text, mode, data_dir=active_dir,
                                     expected_fingerprint=fingerprint, history_dir=HISTORY_DIR)
                 st.session_state.nl_result = {"task_id": manifest["task_id"]}
         except ValueError as exc:

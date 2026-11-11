@@ -40,6 +40,12 @@ def render_history():
     except Exception as exc:
         st.error(f"无法打开历史任务：{exc}")
         return
+    if manifest.get("dataset_source"):
+        st.info(manifest["dataset_source"]["coverage"])
+        st.caption("本地导入数据集：" + manifest["dataset_source"]["dataset_id"])
+    if manifest.get("online_source"):
+        st.info(manifest["online_source"]["coverage"])
+        st.markdown("在线数据来源：[© OpenStreetMap contributors](https://www.openstreetmap.org/copyright)。复现使用获取时的输入快照，不重新联网。")
     st.write("原始指令：" + manifest["query"])
     st.caption(f"解析方式：{manifest['parser']}；任务编号：{selected_id}。")
     if manifest.get("parent_task_id"):

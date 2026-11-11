@@ -66,6 +66,7 @@ class NaturalGISTests(unittest.TestCase):
     def test_page_rejects_unsupported_before_saving_or_computing(self):
         app = AppTest.from_file(str(Path(__file__).with_name("app.py")), default_timeout=60).run()
         app.sidebar.radio[0].set_value("自然语言空间分析").run()
+        app.radio(key="analysis_dataset").set_value("昌盛路验收样本").run()
         client = self.buffer_client()
         # Use an in-memory dummy key; never load or change the real API settings.
         with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "test-only"}), \
@@ -202,6 +203,7 @@ class NaturalGISTests(unittest.TestCase):
         self.addCleanup(history_patch.stop)
         app = AppTest.from_file(str(Path(__file__).with_name("app.py")), default_timeout=60).run()
         app.sidebar.radio[0].set_value("自然语言空间分析").run()
+        app.radio(key="analysis_dataset").set_value("昌盛路验收样本").run()
         self.assertFalse(app.exception)
         self.assertFalse(app.metric)
         app.text_input(key="nl_query").set_value("分析昌盛路周边500米范围内的建筑物，统计范围内和范围外的数量，并计算范围内建筑物占比。")

@@ -24,6 +24,7 @@ class ProductUITests(unittest.TestCase):
         self.addCleanup(replacement.stop)
         app = AppTest.from_file(str(Path(__file__).with_name("app.py")), default_timeout=60).run()
         app.sidebar.radio[0].set_value("自然语言空间分析").run()
+        app.radio(key="analysis_dataset").set_value("昌盛路验收样本").run()
         self.assertFalse(app.exception)
         return app
 

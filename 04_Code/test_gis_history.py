@@ -123,6 +123,7 @@ class HistoryTests(unittest.TestCase):
             self.assertFalse(app.exception)
             self.assertTrue(app.info)
             app.sidebar.radio[0].set_value("自然语言空间分析").run()
+            app.radio(key="analysis_dataset").set_value("昌盛路验收样本").run()
             app.text_input(key="nl_query").set_value("分析昌盛路周边500米范围内的建筑物")
             app.button[0].click().run()
             self.assertFalse(app.exception)

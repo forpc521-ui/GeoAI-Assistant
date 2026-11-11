@@ -31,6 +31,9 @@ st.set_page_config(
     layout="wide"
 )
 
+from gis_ui_runtime import protect_page_translation
+protect_page_translation()
+
 st.title("🌍 GeoAI Assistant")
 st.write("基于 DeepSeek + RAG 的 GIS 智能知识助手")
 

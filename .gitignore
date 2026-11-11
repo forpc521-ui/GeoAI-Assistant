@@ -44,6 +44,12 @@ __pycache__/
 /作品集/*.pdf
 /demo.docx
 
+# Online provider responses and local cache
+03_Data/online_cache/
+
+# Prepared geographic dataset libraries
+03_Data/beijing_library/
+
 # Keep selected application documents local only
 /PRD_v2.0_.md
 /作品集/PRD_v2.0_.md

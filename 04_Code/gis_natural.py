@@ -130,7 +130,11 @@ def parse_task(text, available_roads, client=None):
         except (TypeError, ValueError, IndexError, AttributeError) as exc:
             raise ValueError("模型未返回有效任务，请改用本地规则解析。") from exc
     task = validate_task(payload, available_roads)
-    named_roads = [name for name in available_roads if name in text]
+    # A regional library can contain numeric names (e.g. "5") which must not
+    # match the distance "500", and short names contained in longer names.
+    mention_names = sorted({name for name in available_roads if name and not name.isdigit()}, key=lambda name: (-len(name), name))
+    pattern = '|'.join(re.escape(name) for name in mention_names)
+    named_roads = list(dict.fromkeys(match.group(0) for match in re.finditer(pattern, text))) if pattern else []
     if named_roads != [task.road_name] or not math.isclose(task.distance_m, distance, abs_tol=1e-8):
         raise ValueError("解析参数与原指令不一致，请明确指定一条可用道路及一个距离。")
     if not any(word in text for word in ("建筑", "楼宇")):

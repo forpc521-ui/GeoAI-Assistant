@@ -124,7 +124,7 @@ def compare_layers(saved, replayed):
 
 
 def save_run(task, query, parser, data_dir=DATA_DIR, expected_fingerprint=None,
-             history_dir=HISTORY_DIR, parent_id=None):
+             history_dir=HISTORY_DIR, parent_id=None, source_metadata=None, dataset_metadata=None):
     """Compute against captured bytes, then publish all files with one directory rename."""
     sources = [Path(data_dir) / name for name in INPUT_NAMES]
     source_bytes = [path.read_bytes() for path in sources]
@@ -168,6 +168,12 @@ def save_run(task, query, parser, data_dir=DATA_DIR, expected_fingerprint=None,
             "files": {name: {"sha256": sha256((staging / name).read_bytes()),
                              "bytes": (staging / name).stat().st_size} for name in ARTIFACTS},
         }
+        if source_metadata is not None or (parent and parent.get("online_source")):
+            manifest["online_source"] = source_metadata if source_metadata is not None else parent["online_source"]
+            manifest["analysis"]["coverage"] = manifest["online_source"]["coverage"]
+        if dataset_metadata is not None or (parent and parent.get("dataset_source")):
+            manifest["dataset_source"] = dataset_metadata if dataset_metadata is not None else parent["dataset_source"]
+            manifest["analysis"]["coverage"] = manifest["dataset_source"]["coverage"]
         if parent:
             manifest["reproduction"] = compare_layers(load_layers(parent_id, history_dir), layers)
             manifest["reproduction"]["environment_changed"] = parent["environment"] != manifest["environment"]
