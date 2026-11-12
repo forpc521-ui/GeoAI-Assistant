@@ -1,5 +1,13 @@
 # 实现与数据架构
 
+## 当前架构补充（2026-11-12）
+
+当前主应用自然语言页面默认进入 `gis_local_ui.py`：直接选道路/距离或经 `gis_local_parser.py` 调用规则/DeepSeek → 校验 → `gis_local.py` 根据本地 GeoPackage 名称索引产生连通候选 → 用户确认 → 空间索引读附近建筑 → `gis_history.save_run` 与原 GIS 引擎计算 → 结果/导出/历史复现。模型不接收建筑几何，不负责计数。知识问答仍为独立 BGE/FAISS/DeepSeek 路径。
+
+`gis_natural_ui.py` 对应旧昌盛路验收模式；`online_app.py` 为超时未通过真实在线验收的独立实验入口。公开 `docs/demo-v2/` 为合成交互与保存结果回放，不连接生产 API。
+
+以下 2026-10-18 架构保留为旧模式说明，不能据此认为当前只支持昌盛路。当前需求见 [PRD](../05_Demo/Portfolio/GeoAI-Assistant_PRD_v2.0_AI产品版.md)。
+
 基于2026-10-18当前源码核对。保留现有计算与解析逻辑，不引入通用 Agent 框架。
 
 ```mermaid

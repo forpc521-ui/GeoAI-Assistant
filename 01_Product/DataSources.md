@@ -1,5 +1,7 @@
 # 数据来源、口径与证据缺口
 
+> 当前数据补充（2026-11-12）：默认主线使用 jing-road.geojson、jing-building.geojson 导入的海淀区及周边数据；来源、覆盖与验收见 [HaidianData.md](../05_Demo/HaidianData.md)。以下 target_road/buildings_osm 与昌盛路表述属于旧验收样本，不能当作当前覆盖范围。
+
 ## 本次可验证的事实
 
 - 当前输入：`03_Data/raw_documents/osm_test/target_road.geojson`（4个道路要素，名称昌盛路）、`buildings_osm.geojson`（510个建筑物要素）。源文件 CRS 均为 EPSG:4326。

@@ -1,95 +1,73 @@
-# GeoAI Assistant
+# GeoAI Assistant｜道路周边建筑物筛选助手
 
-面向AI产品经理求职展示的本地GIS分析MVP：受约束指令 → 参数校验 → 真实空间计算 → 地图/统计/表格 → CSV/GeoJSON → 任务快照与历史复现。另保留GIS知识问答原型。
+为有道路周边建筑物筛选需求、但不熟悉完整 GIS 操作的使用者，提供“表达任务 → 确认路段 → 计算 → 导出 → 复核”的工作流。当前目标用户是有基础数据条件的 GIS 初学者与工程助理，属于待用户验证的定位；不用于工程安全判定或替代规划设计。
 
-## 先运行已验证的环境
+**已实现：**本地海淀区及周边数据分析、可选 DeepSeek 指令解析、GIS 确定性计算、结果导出与历史快照复现；另有 GIS 知识问答 RAG 原型。
 
-PowerShell：
+**先看产品，再看实现：**
+
+- [在线体验与真实运行回放](https://forpc521-ui.github.io/GeoAI-Assistant/demo-v2/)：先看真实本地录屏与已保存的模型请求，再试合成样本交互；回放不是实时调用。
+- [产品案例：问题、取舍与证据](05_Demo/Portfolio/ProductCase.md)：理解为什么做、为什么用 AI、哪些结论尚未成立。
+- [当前 PRD](05_Demo/Portfolio/GeoAI-Assistant_PRD_v2.0_AI产品版.md) · [方案选型与 AI 指标](05_Demo/Portfolio/GeoAI_作品集_方案选型与AI指标.md) · [最新评测](05_Demo/ai_quality_20261111/report.md)
+
+## 要解决的任务
+
+用户已有道路和建筑物数据，希望拿到指定路段周围一定距离内的建筑物清单，以便学习空间分析或开展初步资料筛选。难点包括坐标系、同名道路的路段选择、缓冲区与相交操作、结果口径和后续复核。
+
+产品把这些步骤串成一个可检查的流程。是否比现有工具更省时、自然语言是否优于参数表单，尚未完成真实用户对照；不把自动化收益全部归因于 AI。
+
+## 当前能力与证据（2026-11-12）
+
+| 能力 | 当前实现 | 可核对证据 |
+|---|---|---|
+| 数据接入 | 7,932 个已命名道路要素、2,194 个名称、33,762 个建筑物；海淀区及周边，非行政区完整覆盖 | [导入、来源与验收](05_Demo/HaidianData.md) |
+| 指令理解 | 规则或 DeepSeek 提取道路与距离，程序校验，人工确认连通候选路段 | [10 条开发指令原始结果](05_Demo/ai_quality_20261111/parsing_results.json) |
+| 真实计算 | 米制缓冲区与建筑物相交，含边界接触；地图、CSV、GeoJSON与任务快照 | 中关村大街 500 米特定候选：读取 609 个、相交 371 个；[验证说明](05_Demo/HaidianData.md) |
+| 导出复核 | 结果导出、保存输入快照、历史重算；重算跳过模型 | [当前用户流程](01_Product/UserFlow.md) |
+| 知识问答 | BGE＋FAISS Top3＋DeepSeek，展示资料片段 | [20 题开发评测](05_Demo/ai_quality_20261111/report.md) |
+
+以上数量属于特定数据和路段，建筑物输入总数是附近包围框读取样本，不是全区建筑物总数；不同样本的占比不能直接比较。
+
+## 为什么使用 AI
+
+GIS 引擎负责缓冲区、距离、相交与计数；这些结果不由语言模型生成。模型只用于自然表达的参数理解与资料问答。
+
+在相同 10 条开发指令上，DeepSeek 经产品校验 10/10、本地规则 8/10；其中有效指令 6 条，规则失败于两条改写。它支持“模型可能改善表达覆盖”的初步判断，不能证明通用准确率或用户效率提升。表单仍是重要替代方案，现有页面支持直接选道路与距离。见[对照验证方案](01_Product/ValidationPlan.md)。
+
+RAG 评测只有 3 份资料、13 个片段，Recall@3 为 96.88%（16 道可回答题）；属于开发基线。回答级无依据扩展 1/20，未经独立人工复核，不能写成事实幻觉率 5%。无真实用户满意度、节时或业务收入指标。
+
+## 三种体验方式
+
+| 方式 | 能看到什么 | 使用条件 |
+|---|---|---|
+| 在线预览 | 合成样本计算、CSV、浏览器历史、本地关键词检索 | 无需安装或密钥，不调用模型 |
+| 真实证据回放 | 用户提供的本地完整运行录屏；2026-11-11 保存的模型解析与 RAG 回答、来源 | 同一在线入口即可查看；不是实时服务 |
+| 本地完整产品 | 海淀区及周边真实数据、可选模型、GIS、导出、快照复现 | 自备授权数据和可选 API 密钥 |
+
+## 本地启动与数据
+
+已有已验证环境：Windows、Python 3.12.3、Streamlit 1.65.0。新机器安装尚未经过干净环境验证，不能仅克隆仓库就运行真实数据分析。
 
 ```powershell
 Set-Location 'D:\GeoAI-Assistant'
 & '.\venv\Scripts\python.exe' -m streamlit run '.\04_Code\app.py' --server.address 127.0.0.1
 ```
 
-打开 http://localhost:8501 ，侧边栏选择“自然语言空间分析”，使用“本地规则（无需API）”，输入：
+打开 http://localhost:8501 ，选择“自然语言空间分析”及“海淀区本地数据包（默认）”。示例：“分析中关村大街周边500米范围内的建筑物”，解析后确认路段，再执行筛选。无 API 时使用规则或直接选择道路与距离。
 
-```text
-分析昌盛路周边500米范围内的建筑物
-```
-
-当前样本预期：510个建筑物，105个相交，405个在范围外，范围内占比20.59%。300/1000米相交数为53/191。每次成功提交自动保存新任务；过滤和下载不重复保存。历史页面可查看、导出ZIP/JSON及用输入快照重算。
-
-已有服务占用8501时先使用原地址；不要重复启动。服务运行期间终端保持占用，Ctrl+C停止。图层显示要求浏览器支持WebGL；在线底图/前端资源可能依赖网络。
-
-## 验证命令与结果
+首次准备环境：`py -3.12 -m venv .venv`，再用 `.venv\Scripts\python.exe -m pip install -r requirements-demo.txt`；启动命令中的 `venv` 相应改成 `.venv`。实际数据导入见[本地数据说明](05_Demo/LocalData.md)。`.env.example` 是密钥模板，密钥只放本机 `.env`；知识问答还需准备知识库、嵌入模型和索引。完整依赖快照见 `environment-verified.txt`。
 
 ```powershell
-Set-Location 'D:\GeoAI-Assistant'
 & '.\venv\Scripts\python.exe' -m unittest discover -s 04_Code -p 'test_gis*.py' -v
-& '.\venv\Scripts\python.exe' '.\04_Code\evaluate_project.py' --mode local
 ```
 
-2026-10-18现有环境：39项回归通过。冻结30条开发指令中本地规则标准表达12/12、同义改写0/8、异常10/10；有效任务端到端与复现均12/20（60%），已执行12条空间/复现核验各12/12。详细分母见01_Product/Metrics.md；不能称为模型准确率、用户效果或100%总体闭环。以上是2026-10-18历史结果；2026-11-11的RAG与DeepSeek实测见[最新评测报告](05_Demo/ai_quality_20261111/report.md)。
+全量测试依赖未公开分发的本地夹具及数据；工程测试不等于模型效果评测。旧昌盛路样本与 [2026-10-18 验收](05_Demo/acceptance_20261018/report.md)仅作历史基线，不代表当前道路范围或当前模型表现。
 
-## 环境与新机器安装
+## 设计取舍与交付边界
 
-当前验证环境：Windows、Python3.12.3、Streamlit1.65.0。直接依赖固定在requirements-demo.txt；全量已安装版本记录在environment-verified.txt。现有环境无需升级。下列新环境步骤尚未经干净机器验证：
+- 公共在线数据请求超时后，改为一次导入、本地索引分析，优先保证可重复完成任务；接受数据更新需重新导入的代价。
+- 单道路、单距离、建筑物相交任务采用固定工作流，不宣称自主规划 Agent。不支持高度、人口、预测、多道路比较或工程风险判定。
+- 原始空间数据、密钥、向量库和任务文件留在本机；任务包含几何与路径，分享前需审阅。公开预览不接收密钥。
+- 公开交付为源码、材料、回放和交互预览；完整 AI 应用尚未托管为公网服务。
 
-```powershell
-Set-Location 'D:\GeoAI-Assistant'
-py -3.12 -m venv .venv
-& '.\.venv\Scripts\python.exe' -m pip install -r requirements-demo.txt
-& '.\.venv\Scripts\python.exe' -m streamlit run '.\04_Code\app.py' --server.address 127.0.0.1
-```
-
-新环境请在两条验证命令中相应将venv改为.venv。若缺包或版本无法安装，保留错误信息另建环境处理，不覆盖原环境。
-
-空间主线需要 `03_Data/raw_documents/osm_test/target_road.geojson` 与 `buildings_osm.geojson`。固定500米页面还需要 `03_Data/gis_target_road_results/` 既有结果；全量测试还需要 `03_Data/gis_samples/` 模拟图层。数据未随公开源码默认分发，迁移需另备经授权数据。
-
-可选DeepSeek：复制.env.example为.env后由使用者填入自己的DEEPSEEK_API_KEY；已有.env不要覆盖。问答还需要knowledge_base、vector_database及BAAI/bge-small-zh-v1.5缓存/下载；ingest.py可建库但会写入索引，先备份。API解析仅提取参数，GIS才计算结果。
-
-## 能力与数据边界
-
-- 当前只有昌盛路、单距离0至5000米（不含0），建筑物相交筛选与内外数量/占比；本地规则限定句式。
-- 同名道路合并，EPSG:32650米制计算；intersects包括部分相交与边界接触；输出4326。占比分母是本次输入，不是行政区全量。
-- 自然语言与历史页面支持汇总/明细CSV和空间GeoJSON；固定500米旧页面保留原GeoJSON导出，功能不完全对称。
-- 不支持任意任务规划、文件上传、多道路比较、高度/人口、时序预测、路径规划或CAD/BIM。知识问答是独立入口。
-- 本地qmd有OpenStreetMap署名及许可链接；下载日期、渠道、完整范围和许可链仍待补证，详见DataSources.md。
-
-## 材料导航
-
-| 材料 | 文件 |
-|---|---|
-| 产品需求与流程 | 05_Demo/Portfolio/GeoAI-Assistant_PRD_v2.0_AI产品版.md、01_Product/UserFlow.md |
-| 来源/边界与指标 | 01_Product/DataSources.md、Metrics.md |
-| 实际架构 | 02_Technology/Architecture.md |
-| 验收摘要 | 05_Demo/acceptance_20261018/ |
-| 环境与安全 | 05_Demo/DeliveryAndSecurity.md |
-
-密钥、环境、正式任务记录和待审核数据已加入.gitignore。任务包不含.env，但含指令、原始几何和本机路径，分享前审阅。源码与材料现已公开；原始数据仍留在本机，本地演示不等于生产部署。
-
-## 求职作品集
-
-- [AI 产品 PRD](05_Demo/Portfolio/GeoAI-Assistant_PRD_v2.0_AI产品版.md)
-- [方案选型与 AI 指标](05_Demo/Portfolio/GeoAI_作品集_方案选型与AI指标.md)
-- [评测报告（最新）](05_Demo/ai_quality_20261111/report.md)
-
-公开仓库提供源码、文档与历史验收证据；原始空间数据、个人简历、API 密钥、虚拟环境及任务快照留在本机。克隆后需自行准备经授权的数据，才能运行空间分析和依赖该数据的测试。GitHub 仓库链接用于源码与材料展示，尚非在线应用。
-
-## 北京在线数据入口
-
-无需上传地理文件的道路搜索、候选确认、在线建筑物获取与快照分析已接入本地Streamlit，独立入口为 `04_Code/online_app.py`。启动、数据边界和验证状态见[在线数据说明](05_Demo/OnlineData.md)。本机真实Overpass请求当前超时，真实在线闭环仍未通过验收；GitHub Pages保持合成样本体验。
-
-## 本地北京数据包筛选（当前推荐）
-
-为避开公共在线接口超时，新增持久化本地数据包入口 `04_Code/local_app.py`。一次导入配套道路和建筑物后，可离线选择道路、筛选建筑物、导出和复现；支持GeoJSON、GeoPackage，以及命令行的Shapefile。见[本地数据导入说明](05_Demo/LocalData.md)。本次尚未取得并导入完整北京市数据，不能宣称全市覆盖；原在线实验入口和合成网页Demo保持独立。
-
-## 当前分析数据：海淀区及周边（2026-11-11）
-
-已导入用户提供的 `jing-road.geojson` 和 `jing-building.geojson`，保留7,932个已命名道路要素（2,194个名称）与33,762个建筑物。自然语言空间分析默认使用此数据包，支持先解析道路与距离、确认连通路段后离线筛选。文件含周边区域，尚未核实海淀区完整行政边界覆盖；不宣称北京市全域。原始文件不公开上传。见[海淀区数据使用说明](05_Demo/HaidianData.md)。
-
-## 在线 Demo（最新）
-
-[打开 GeoAI Demo V2](https://forpc521-ui.github.io/GeoAI-Assistant/demo-v2/)
-
-无需安装或密钥。公开交互采用合成样本与本地知识检索；海淀区真实数据计算、DeepSeek和RAG仍需运行本地完整项目。旧GitHub Pages根地址自动跳转到本入口，不再展示旧版交互页。
+需求、取舍、实现模块和验收证据见[产品案例](05_Demo/Portfolio/ProductCase.md)。代码由 AI 编码工具辅助开发与修改；贡献描述按证据说明，不将工具生成代码等同于独立手写开发。
